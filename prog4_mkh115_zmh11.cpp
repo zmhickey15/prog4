@@ -1,10 +1,10 @@
 /*
-   File: prog4_mkh115_zmh11.cpp  
-   Author: Mavrick Henderson, Zachary Hickey       
-   C.S.1428.002            
-   Lab Section: L17, L17        
+   File: prog4_mkh115_zmh11.cpp
+   Author: Mavrick Henderson, Zachary Hickey
+   C.S.1428.002
+   Lab Section: L17, L17
    Program: #4
-   Due Date: 10/30/19      
+   Due Date: 10/30/19
    This program prompts the user for the number of items purchased. If no
    items were purchased, the program terminates after printing an appropriate
    message to the screen; otherwise, the program repeatedly prompts the
@@ -61,13 +61,14 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <cstdlib>
 
 using namespace std;
 
 int main()
 {
-    const double DISCOUNT = .2,
-                 CUT_OFF = 150,
+    const double DISCOUNT = .25,
+                 CUT_OFF = 50,
                  SHIPPING_CHARGE = 8.50,
                  TAX_RATE = .0825;
     double discount_total,
@@ -84,7 +85,7 @@ int main()
 
     if (items_purchased == 0)
         cout << "Come back again soon!";
-    else 
+    else
         {
         for (int i = 0; i < items_purchased; i++)
             {
@@ -97,11 +98,11 @@ int main()
 
             if (discount_total >= CUT_OFF)
                 shipping = 0;
-            else 
+            else
                 shipping = SHIPPING_CHARGE;
 
             tax = discount_total * TAX_RATE;
-            
+
             amount_owed = discount_total + shipping + tax;
 
             ofstream fout;
@@ -114,43 +115,43 @@ int main()
 
                      return 2;
                 }
-            
-            fout << "Mavrick Henderson, Zachary Hickey" << endl 
-                 << "C.S.1428.002" << endl 
-                 << "Lab Section: L17, L17" << endl 
-                 << "10/30/19" << endl << endl 
+
+            fout << "Mavrick Henderson, Zachary Hickey" << endl
+                 << "C.S.1428.002" << endl
+                 << "Lab Section: L17, L17" << endl
+                 << "10/30/19" << endl << endl
 
                 << fixed << setprecision(2)
                  << "Total Purchases:    $ " << setw(6) << total << endl
                  << "Discounted Total:     " << setw(6) << discount_total << endl
-                 << setprecision(4) 
+                 << setprecision(4)
                  << "Tax Rate:             " << setw(8) << TAX_RATE << endl
-                 << setprecision(2) 
+                 << setprecision(2)
                  << "Tax:                  " << setw(6) << tax << endl
                  << "Shipping:             " << setw(6) << shipping << endl << endl
 
                  <<"Total Amount Due:    $ " << setw(6) << amount_owed << endl;
 
                  fout.close();
-            
+
             cout << endl << endl
-                 << "Mavrick Henderson, Zachary Hickey" << endl 
-                 << "C.S.1428.002" << endl 
-                 << "Lab Section: L17, L17" << endl 
-                 << "10/30/19" << endl << endl 
+                 << "Mavrick Henderson, Zachary Hickey" << endl
+                 << "C.S.1428.002" << endl
+                 << "Lab Section: L17, L17" << endl
+                 << "10/30/19" << endl << endl
 
                 << fixed << setprecision(2)
                  << "Total Purchases:    $ " << setw(6) << total << endl
                  << "Discounted Total:     " << setw(6) << discount_total << endl
-                 << setprecision(4) 
+                 << setprecision(4)
                  << "Tax Rate:             " << setw(8) << TAX_RATE << endl
-                 << setprecision(2) 
+                 << setprecision(2)
                  << "Tax:                  " << setw(6) << tax << endl
                  << "Shipping:             " << setw(6) << shipping << endl << endl
 
-                 << "Total Amount Due:    $ " << setw(6) << amount_owed << endl << endl 
-                 << "A copy for your records can be found in prog4_mkh115_zmh11_out.txt" << endl;
-            
+                 << "Total Amount Due:   $ " << setw(6) << amount_owed << endl << endl
+                 << "A copy for your records can be found in prog4_mkh115_zmh11_out.txt." << endl;
+
         }
 
     system("PAUSE>NUL");
